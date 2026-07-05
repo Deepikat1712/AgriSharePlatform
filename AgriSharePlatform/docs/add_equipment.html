@@ -3,59 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Equipment</title>
-<link rel="stylesheet" href="/AgriSharePlatform/css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="login-page">
 
-<nav>
-<div class="logo">
-    <img src="/AgriSharePlatform/images/logo.png" alt="Logo">
-    <h2>🌱 AgriShare Owner</h2>
-</div>
+	<nav>
+		<div class="logo">
+			<img src="images/logo.png" alt="Logo">
+			<h2>🌱 AgriShare Owner</h2>
+		</div>
 
-<ul>
-    <li><a href="owner_dashboard.html">Dashboard</a></li>
-    <li><a href="add_equipment.html">Add Equipment</a></li>
-    <li><a href="owner_login.html">Logout</a></li>
-</ul>
-</nav>
+		<ul>
+			<li><a href="owner_dashboard.html">Dashboard</a></li>
+			<li><a href="add_equipment.html">Add Equipment</a></li>
+			<li><a href="owner_login.html">Logout</a></li>
+		</ul>
+	</nav>
 
-<div class="login-container">
+	<div class="login-container">
 
-    <div class="form-container">
+		<div class="form-container">
 
-        <h2>Add Equipment</h2>
+			<h2>Add Equipment</h2>
 
-        <form class="equipment-form" action="../AddEquipmentServlet" method="post">
+			<form class="equipment-form" action="../AddEquipmentServlet"
+				method="post">
 
-            <input type="text"
-                   name="name"
-                   placeholder="Equipment Name"
-                   required>
+				<input type="text" name="name" placeholder="Equipment Name" required>
 
-            <input type="text"
-                   name="category"
-                   placeholder="Category"
-                   required>
+				<input type="text" name="category" placeholder="Category" required>
 
-            <input type="number"
-                   name="price"
-                   placeholder="Price Per Day"
-                   required>
+				<input type="number" name="price" placeholder="Price Per Day"
+					required> <input type="text" name="owner"
+					placeholder="Owner Name" required>
 
-            <input type="text"
-                   name="owner"
-                   placeholder="Owner Name"
-                   required>
+				<button type="submit">Add Equipment</button>
 
-            <button type="submit">Add Equipment</button>
+			</form>
 
-        </form>
+		</div>
 
-    </div>
-
-</div>
+	</div>
 
 </body>
 </html>
