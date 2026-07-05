@@ -1,0 +1,129 @@
+.about-banner{
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url("/AgriSharePlatform/images/about.png");
+    background-size:cover;
+    background-position:center;
+    height:350px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+.about-banner h1{
+    font-size:50px;
+}
+
+.about-banner p{
+    font-size:20px;
+    margin-top:10px;
+}
+
+.about-section{
+    padding:60px;
+    text-align:center;
+}
+
+.about-text{
+    max-width:900px;
+    margin:auto;
+}
+
+.about-text h2{
+    color:#2E7D32;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    font-size:18px;
+    line-height:30px;
+    color:#555;
+}
+
+.mission{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:40px;
+}
+
+.box{
+    width:400px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.box h2{
+    color:#2E7D32;
+}
+
+.services{
+    padding:60px;
+    text-align:center;
+}
+
+.services h2{
+    color:#2E7D32;
+    margin-bottom:40px;
+}
+
+.service-cards{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.service-card{
+    width:260px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+}
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    background:#2E7D32;
+    color:white;
+    padding:50px;
+}
+
+.stat-box h2{
+    font-size:40px;
+}
+
+.contact{
+    padding:60px;
+    text-align:center;
+}
+
+.contact h2{
+    color:#2E7D32;
+    margin-bottom:20px;
+}
+
+.contact p{
+    font-size:18px;
+    margin:10px;
+}
+
+footer{
+    background:#1B5E20;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
