@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Equipment</title>
+    <link rel="stylesheet" href="/AgriSharePlatform/css/style.css">
+</head>
+
+<body class="login-page">
+
+<nav>
+    <div class="logo">
+        <img src="/AgriSharePlatform/images/logo.png" width="50">
+        <h2>🌱 AgriShare</h2>
+    </div>
+
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="equipment.html">Equipment</a></li>
+        <li><a href="booking.html">Bookings</a></li>
+        <li><a href="login.html">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="login-container">
+
+    <div class="form-container">
+
+        <h2>Equipment Booking</h2>
+
+        <form class="booking-form" action="../BookingServlet" method="post">
+
+            <input type="text"
+                   name="user_name"
+                   placeholder="Farmer Name"
+                   required>
+
+            <input type="text"
+                   name="equipment_name"
+                   placeholder="Equipment Name"
+                   required>
+
+            <input type="date"
+                   name="date"
+                   required>
+
+            <input type="number"
+                   name="days"
+                   placeholder="Number of Days"
+                   required>
+
+            <button type="submit">Book Now</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
