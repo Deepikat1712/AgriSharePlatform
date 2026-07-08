@@ -12,9 +12,9 @@ public class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/agrishare",
-                "root",
-                "deepika@1712"
+                "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12832471",
+    "sql12832471",
+    " YaKHWSX1HH"
             );
 
         } catch (Exception e) {
