@@ -70,7 +70,7 @@ nav ul li a:hover{
 .hero{
     background:
     linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-    url("/AgriSharePlatform/images/home.png");
+    url("../images/home.png");
 
     background-size:cover;
     background-position:center;
@@ -433,7 +433,7 @@ footer{
 .login-container{
     background:
     linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),
-    url("/AgriSharePlatform/images/login.png");
+    url("../images/login.png");
 
     background-size:cover;
     background-position:center;
@@ -444,7 +444,7 @@ footer{
 .about{
     background:
     linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),
-    url("/AgriSharePlatform/images/login.png");
+    url("../images/login.png");
 
     background-size:cover;
     background-position:center;
@@ -453,7 +453,7 @@ footer{
 .dashboard-header{
     background:
     linear-gradient(rgba(46,125,50,0.8),rgba(46,125,50,0.8)),
-    url("/AgriSharePlatform/images/home.png");
+    url("../images/home.png");
 
     background-size:cover;
     background-position:center;
