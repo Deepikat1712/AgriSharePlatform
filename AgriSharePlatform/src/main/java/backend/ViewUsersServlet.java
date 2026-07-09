@@ -10,42 +10,74 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.annotation.WebServlet;
 
-@WebServlet("/ViewUsersServlet")
 public class ViewUsersServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
             throws ServletException, IOException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        out.println("<html><head><title>View Users</title>");
-        out.println("<link rel='stylesheet' href='/AgriSharePlatform/css/style.css'>");
-        out.println("</head><body>");
+        String cp = request.getContextPath();
 
-        out.println("<h2 align='center'>Registered Users</h2>");
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Registered Users</title>");
+        out.println("<link rel='stylesheet' href='" + cp + "/css/style.css'>");
+        out.println("</head>");
+
+        out.println("<body>");
+
+        out.println("<nav>");
+        out.println("<div class='logo'>");
+        out.println("<img src='" + cp + "/images/logo.png' width='50'>");
+        out.println("<h2>🌱 AgriShare</h2>");
+        out.println("</div>");
+
+        out.println("<ul>");
+        out.println("<li><a href='" + cp + "/frontend/admin.html'>Admin Dashboard</a></li>");
+        out.println("</ul>");
+        out.println("</nav>");
+
+        out.println("<div class='equipment-page'>");
+        out.println("<h1>Registered Users</h1>");
+
         out.println("<table border='1' align='center' cellpadding='10'>");
-        out.println("<tr><th>ID</th><th>Name</th><th>Email</th></tr>");
+        out.println("<tr>");
+        out.println("<th>ID</th>");
+        out.println("<th>Name</th>");
+        out.println("<th>Email</th>");
+        out.println("</tr>");
 
         try {
+
             Connection con = DBConnection.getConnection();
+
             PreparedStatement ps = con.prepareStatement("SELECT * FROM users");
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+
                 out.println("<tr>");
                 out.println("<td>" + rs.getInt("id") + "</td>");
                 out.println("<td>" + rs.getString("name") + "</td>");
                 out.println("<td>" + rs.getString("email") + "</td>");
                 out.println("</tr>");
+
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            out.println("<h3>Error : " + e.getMessage() + "</h3>");
         }
 
-        out.println("</table></body></html>");
+        out.println("</table>");
+        out.println("</div>");
+        out.println("</body>");
+        out.println("</html>");
     }
 }

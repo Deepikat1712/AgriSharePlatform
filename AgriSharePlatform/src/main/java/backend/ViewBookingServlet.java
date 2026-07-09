@@ -10,9 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.annotation.WebServlet;
 
-@WebServlet("/ViewBookingServlet")
 public class ViewBookingServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -21,20 +19,50 @@ public class ViewBookingServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        out.println("<html><head><title>View Bookings</title>");
-        out.println("<link rel='stylesheet' href='/AgriSharePlatform/css/style.css'>");
-        out.println("</head><body>");
+        String cp = request.getContextPath();
 
-        out.println("<h2 align='center'>Booking Details</h2>");
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Booking Details</title>");
+        out.println("<link rel='stylesheet' href='" + cp + "/css/style.css'>");
+        out.println("</head>");
+
+        out.println("<body>");
+
+        out.println("<nav>");
+        out.println("<div class='logo'>");
+        out.println("<img src='" + cp + "/images/logo.png' width='50'>");
+        out.println("<h2>🌱 AgriShare</h2>");
+        out.println("</div>");
+
+        out.println("<ul>");
+        out.println("<li><a href='" + cp + "/frontend/admin.html'>Admin Dashboard</a></li>");
+        out.println("</ul>");
+        out.println("</nav>");
+
+        out.println("<div class='equipment-page'>");
+        out.println("<h1>Booking Details</h1>");
+
         out.println("<table border='1' align='center' cellpadding='10'>");
-        out.println("<tr><th>ID</th><th>User</th><th>Equipment</th><th>Date</th><th>Days</th></tr>");
+        out.println("<tr>");
+        out.println("<th>ID</th>");
+        out.println("<th>User</th>");
+        out.println("<th>Equipment</th>");
+        out.println("<th>Date</th>");
+        out.println("<th>Days</th>");
+        out.println("</tr>");
 
         try {
+
             Connection con = DBConnection.getConnection();
+
             PreparedStatement ps = con.prepareStatement("SELECT * FROM booking");
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
+
                 out.println("<tr>");
                 out.println("<td>" + rs.getInt("id") + "</td>");
                 out.println("<td>" + rs.getString("user_name") + "</td>");
@@ -42,12 +70,17 @@ public class ViewBookingServlet extends HttpServlet {
                 out.println("<td>" + rs.getString("date") + "</td>");
                 out.println("<td>" + rs.getInt("days") + "</td>");
                 out.println("</tr>");
+
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            out.println("<h3>Error : " + e.getMessage() + "</h3>");
         }
 
-        out.println("</table></body></html>");
+        out.println("</table>");
+        out.println("</div>");
+        out.println("</body>");
+        out.println("</html>");
     }
 }

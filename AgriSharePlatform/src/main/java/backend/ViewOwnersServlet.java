@@ -20,12 +20,30 @@ public class ViewOwnersServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        out.println("<html><head>");
-        out.println("<title>Equipment Owners</title>");
-        out.println("<link rel='stylesheet' href='/AgriSharePlatform/css/style.css'>");
-        out.println("</head><body>");
+        String cp = request.getContextPath();
 
-        out.println("<h2 align='center'>Equipment Owners</h2>");
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Equipment Owners</title>");
+        out.println("<link rel='stylesheet' href='" + cp + "/css/style.css'>");
+        out.println("</head>");
+
+        out.println("<body>");
+
+        out.println("<nav>");
+        out.println("<div class='logo'>");
+        out.println("<img src='" + cp + "/images/logo.png' width='50'>");
+        out.println("<h2>🌱 AgriShare</h2>");
+        out.println("</div>");
+
+        out.println("<ul>");
+        out.println("<li><a href='" + cp + "/frontend/admin.html'>Admin Dashboard</a></li>");
+        out.println("</ul>");
+        out.println("</nav>");
+
+        out.println("<div class='equipment-page'>");
+        out.println("<h1>Equipment Owners</h1>");
 
         out.println("<table border='1' align='center' cellpadding='10'>");
         out.println("<tr>");
@@ -35,10 +53,10 @@ public class ViewOwnersServlet extends HttpServlet {
         out.println("</tr>");
 
         try {
+
             Connection con = DBConnection.getConnection();
 
-            PreparedStatement ps =
-                    con.prepareStatement("SELECT * FROM owners");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM owners");
 
             ResultSet rs = ps.executeQuery();
 
@@ -49,13 +67,17 @@ public class ViewOwnersServlet extends HttpServlet {
                 out.println("<td>" + rs.getString("name") + "</td>");
                 out.println("<td>" + rs.getString("email") + "</td>");
                 out.println("</tr>");
+
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            out.println("<h3>Error : " + e.getMessage() + "</h3>");
         }
 
         out.println("</table>");
-        out.println("</body></html>");
+        out.println("</div>");
+        out.println("</body>");
+        out.println("</html>");
     }
 }
