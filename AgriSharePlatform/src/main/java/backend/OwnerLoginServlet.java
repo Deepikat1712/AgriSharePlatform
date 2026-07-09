@@ -42,6 +42,7 @@ public class OwnerLoginServlet extends HttpServlet {
 
         } catch(Exception e) {
             e.printStackTrace();
+            response.getWriter().println("Error: " + e.getMessage());
         }
     }
 }
